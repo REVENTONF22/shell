@@ -1,6 +1,5 @@
 ﻿var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = function (env) {
 	return {
@@ -13,7 +12,7 @@ module.exports = function (env) {
 		devServer: {
 			contentBase: path.resolve(__dirname, 'dist'),
 			host: 'localhost',
-			port: '8080',
+			port: '9001',
 			inline: true,
 			open: true
 		},
@@ -32,7 +31,7 @@ module.exports = function (env) {
 				},
 				{
 					test: /\.css$/i,
-					use: ['vue-style-loader', 'css-loader', {
+					use: ['style-loader', 'css-loader', {
 						loader: 'postcss-loader',
 						options: {
 							plugins: [require('autoprefixer')]
@@ -48,21 +47,14 @@ module.exports = function (env) {
 						options: {
 							outputPath: 'imgs'
 						}
-					},
-					include: path.resolve(__dirname, 'src'),
-					exclude: path.resolve(__dirname, 'node_modules')
-				},
-				{
-					test: /\.vue$/i,
-					use: 'vue-loader'
+					}
 				}
 			]
 		},
 		resolve: {
-			extensions: ['.js', '.jsx', '.json', '.css', '.vue'],
+			extensions: ['.js', '.jsx', '.json', '.css'],
 			alias: {
-				vue: 'vue/dist/vue.esm',
-				components: path.resolve(__dirname, 'src/components')
+				common: path.resolve(__dirname, 'src/common')
 			}
 		},
 		performance: {
@@ -74,8 +66,7 @@ module.exports = function (env) {
 				favicon: path.resolve(__dirname, 'static/favicon.ico'),
 				filename: 'index.html',
 				inject: true
-			}),
-			new VueLoaderPlugin()
+			})
 		]
 	}
 }
