@@ -1,9 +1,6 @@
-﻿console.log('这是一个测试项目');
+﻿// 测试模拟 React 的创建引入
+import React, { Component } from './react';
 
-var obj1 = {name: 'China'};
+console.log(React);
 
-var obj2 = {age: 70};
-
-console.log({...obj1, ...obj2});
-
-console.log('this is a new project!');
+console.log(Component);

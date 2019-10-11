@@ -4,8 +4,9 @@
 }
 
 .test-logo {
-	width: 755px;
-	height: 400px;
+	width: 377px;
+	height: 200px;
 	border: 1px solid #cccccc;
 	background: url('../imgs/mode.jpg');
+	background-size: 100% 100%;
 }
