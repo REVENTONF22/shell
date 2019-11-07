@@ -37,8 +37,7 @@ module.exports = function (env) {
 							plugins: [require('autoprefixer')]
 						}
 					}],
-					include: path.resolve(__dirname, 'src'),
-					exclude: path.resolve(__dirname, 'node_modules')
+					include: path.resolve(__dirname, 'src')
 				},
 				{
 					test: /\.(jpg|png|gif)$/i,
